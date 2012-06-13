@@ -41,6 +41,35 @@ module JB
   end #Path
 end #JB
 
+def post_header(title, published='true')
+  post_header = 
+<<-POST_HEADER
+---
+layout: post
+title: \"#{title.gsub(/-/,' ')}\"
+published: #{published}
+description: ""
+category: 
+tags: []
+---
+{% include JB/setup %}
+POST_HEADER
+  post_header
+end
+
+def page_header(title)
+  page_header = 
+<<-PAGE_HEADER
+---
+layout: page
+title: title: \"#{title}\"
+description: ""
+---
+{% include JB/setup %}
+PAGE_HEADER
+  page_header
+end
+
 # Usage: rake publish file="title name"
 desc "Begin a draft post in #{CONFIG['drafts']}"
 task :draft do
@@ -63,15 +92,7 @@ task :draft do
     puts "#{filename} already exists!"
   else
     File.open(filename,"w+") do |draft|
-      draft.puts "---"
-      draft.puts "layout: post"
-      draft.puts "title: \"#{title.gsub(/-/,' ')}\""
-      draft.puts 'description: ""'
-      draft.puts "published: false"
-      draft.puts "category: "
-      draft.puts "tags: []"
-      draft.puts "---"
-      draft.puts "{% include JB/setup %}"
+      draft.puts post_header(title)
     end
     puts "Created #{filename}"
   end
@@ -121,15 +142,7 @@ task :post do
 
   puts "Creating new post: #{filename}"
   open(filename, 'w') do |post|
-    post.puts "---"
-    post.puts "layout: post"
-    post.puts "title: \"#{title.gsub(/-/,' ')}\""
-    post.puts 'description: ""'
-    post.puts "published: true"
-    post.puts "category: "
-    post.puts "tags: []"
-    post.puts "---"
-    post.puts "{% include JB/setup %}"
+    post.puts post_header(title)
   end
 end # task :post
 
@@ -154,13 +167,8 @@ task :page do
   
   mkdir_p File.dirname(filename)
   puts "Creating new page: #{filename}"
-  open(filename, 'w') do |post|
-    post.puts "---"
-    post.puts "layout: page"
-    post.puts "title: \"#{title}\""
-    post.puts 'description: ""'
-    post.puts "---"
-    post.puts "{% include JB/setup %}"
+  open(filename, 'w') do |page|
+    page.puts page_header(title)
   end
 end # task :page
 
