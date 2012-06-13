@@ -9,6 +9,7 @@ CONFIG = {
   'themes' => File.join(SOURCE, "_includes", "themes"),
   'layouts' => File.join(SOURCE, "_layouts"),
   'posts' => File.join(SOURCE, "_posts"),
+  'drafts' => File.join(SOURCE, "_drafts"),
   'post_ext' => "md",
   'theme_package_version' => "0.1.0"
 }
@@ -40,6 +41,64 @@ module JB
   end #Path
 end #JB
 
+# Usage: rake publish file="title name"
+desc "Begin a draft post in #{CONFIG['drafts']}"
+task :draft do
+  mkdir_p(CONFIG['drafts'])  unless FileTest.directory?(CONFIG['drafts'])
+  title = ENV["title"] || "new-draft-post"
+  slug = title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
+  begin
+    date = (ENV['date'] ? Time.parse(ENV['date']) : Time.now).strftime('%Y-%m-%d')
+  rescue Exception => e
+    puts "Error - date format must be YYYY-MM-DD, please check you typed it correctly!"
+    exit -1
+  end
+
+  filename = File.join(CONFIG['drafts'], "#{date}-#{slug}.#{CONFIG['post_ext']}")
+  if File.exist?(filename)
+    abort("rake aborted!") if ask("#{filename} already exists. Do you want to overwrite?", ['y', 'n']) == 'n'
+  end
+
+  if File.exists?("_drafts/#{filename}")
+    puts "#{filename} already exists!"
+  else
+    File.open(filename,"w+") do |draft|
+      draft.puts "---"
+      draft.puts "layout: post"
+      draft.puts "title: \"#{title.gsub(/-/,' ')}\""
+      draft.puts 'description: ""'
+      draft.puts "published: false"
+      draft.puts "category: "
+      draft.puts "tags: []"
+      draft.puts "---"
+      draft.puts "{% include JB/setup %}"
+    end
+    puts "Created #{filename}"
+  end
+end
+
+# Usage: rake publish file="title name"
+desc "Publish a draft post in #{CONFIG['posts']}"
+task :publish do
+  unless ENV["file"]
+    puts "Choose file:"
+    @files = Dir["_drafts/*"]
+    @files.each_with_index { |f,i| puts "#{i+1}: #{f}" }
+    print "> "
+    num = STDIN.gets
+    file = @files[num.to_i - 1]
+  end
+  begin
+    date = (ENV['date'] ? Time.parse(ENV['date']) : Time.now).strftime('%Y-%m-%d')
+  rescue Exception => e
+    puts "Error - date format must be YYYY-MM-DD, please check you typed it correctly!"
+    exit -1
+  end
+  year, month, day = date.split(/- */).map {|x| x.to_s}
+
+  mv file, File.join(CONFIG['posts'], year, "#{date}-#{File.basename(file)}")
+end
+
 # Usage: rake post title="A Title" [date="2012-02-09"]
 desc "Begin a new post in #{CONFIG['posts']}"
 task :post do
@@ -52,23 +111,33 @@ task :post do
     puts "Error - date format must be YYYY-MM-DD, please check you typed it correctly!"
     exit -1
   end
-  filename = File.join(CONFIG['posts'], "#{date}-#{slug}.#{CONFIG['post_ext']}")
+  year, month, day = date.split(/- */).map {|x| x.to_s}
+  post_folder = File.join(CONFIG['posts'], year)
+  mkdir_p(post_folder) unless File.exists?(post_folder)
+  filename = File.join(post_folder, "#{date}-#{slug}.#{CONFIG['post_ext']}")
   if File.exist?(filename)
     abort("rake aborted!") if ask("#{filename} already exists. Do you want to overwrite?", ['y', 'n']) == 'n'
   end
-  
+
   puts "Creating new post: #{filename}"
   open(filename, 'w') do |post|
     post.puts "---"
     post.puts "layout: post"
     post.puts "title: \"#{title.gsub(/-/,' ')}\""
     post.puts 'description: ""'
+    post.puts "published: true"
     post.puts "category: "
     post.puts "tags: []"
     post.puts "---"
     post.puts "{% include JB/setup %}"
   end
 end # task :post
+
+# Usage: rake drafts 
+desc 'List all draft posts'
+task :drafts do
+  puts `find ./_posts -type f -exec grep -H 'published: false' {} \\;`
+end
 
 # Usage: rake page name="about.html"
 # You can also specify a sub-directory path.

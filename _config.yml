@@ -2,9 +2,17 @@
 # For more see: https://github.com/mojombo/jekyll/wiki/Permalinks
 permalink: /:categories/:year/:month/:day/:title 
 
-exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
+exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md", "blahtex", "ygpark2.github.com.tmproj"]
 auto: true
+# markdown: maruku
 pygments: true
+
+# maruku:
+#   use_tex: true
+#   use_divs: true
+#   png_engine: blahtex
+#   png_dir: images/latex/
+#   png_url: /images/latex/
 
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
