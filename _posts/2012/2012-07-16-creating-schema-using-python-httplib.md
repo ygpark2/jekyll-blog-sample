@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "dratfs test"
+title: "creating schema using python httplib"
 description: ""
 published: true
 category: 
