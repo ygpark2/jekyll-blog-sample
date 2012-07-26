@@ -3,7 +3,7 @@ layout: post
 title: "오쇼의 십계명"
 published: true
 description: ""
-category: meditation
+category: [meditation, beginner]
 tags: [meditation, Osho, commandments]
 ---
 
