@@ -7,7 +7,8 @@ category:
 tags: [python, httplib2, schema, solr]
 ---
 
-{% youtube UQWIhT3WbiE 500 400 %}
+<iframe width="420" height="315" src="http://www.youtube.com/embed/dQw4w9WgXcQ"
+        frameborder="0" allowfullscreen="allowfullscreen">  </iframe>
 
 fasdfasdf
 asdf
