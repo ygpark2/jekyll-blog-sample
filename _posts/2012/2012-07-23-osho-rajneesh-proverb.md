@@ -15,7 +15,6 @@ Never obey anyone's command unless it is coming from within you also.
 
 There is no God other than life itself. 
 
-
 3 진리는 그대 안에 있다. 다른 곳에서 진리를 찾지 말라.
 
 Truth is within you, do not search for it elsewhere.
