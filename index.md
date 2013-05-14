@@ -6,28 +6,36 @@ group: navigation
 ---
 {% include JB/setup %}
 
-## Update Author Attributes
+# 우리 가족과 나의 이야기
 
-In `_config.yml` remember to specify your own data:
+---------------------------------------
+
+## 저희 가족 소개
+
+    - 나 박영규
+    - 아인이 엄마 임선주
+    - 우리 사랑 스런 아들 박아인
+
+## 매일 할 일
+
+    1. 매일 108배 하기
+    2. 알아 차림 명상
+    3. 스트레칭, 하이킥 연습
+    4. 개인 프로젝트 사이트 개발
+
+## 이번달 할 일
+
+    1. 개인 프로젝트 사이트 오픈
+    2. 통계 공부
+    3. 글 쓰기 연습
     
-    title : My Blog =)
-    
-    author :
-      name : Name Lastname
-      email : blah@email.test
-      github : username
-      twitter : username
+## 올해 할 일
 
-The theme should reference these variables whenever needed.
-    
-## Sample Posts
+    1. 나의 개인 프로젝트 사이트 오픈하기
+    2. 통계 공부
+    3. 글 쓰기 연습
 
-This blog contains sample posts which help stage pages and blog data.
-When you don't need the samples anymore just delete the `_posts/core-samples` folder.
-
-    $ rm -rf _posts/core-samples
-
-Here's a sample "posts list".
+## 블로그 글 모음.
 
 <ul class="posts">
   {% for post in site.posts %}
@@ -37,8 +45,9 @@ Here's a sample "posts list".
   {% endfor %}
 </ul>
 
-## To-Do
+## 사야할 물건들
 
-This theme is still unfinished. If you'd like to be added as a contributor, [please fork](http://github.com/plusjade/jekyll-bootstrap)!
-We need to clean up the themes, make theme usage guides with theme-specific markup examples.
-
+    * 아마존 킨들
+    * 아이패드
+    * 아이폰
+    * 프린터

@@ -117,7 +117,7 @@ task :publish do
   end
   year, month, day = date.split(/- */).map {|x| x.to_s}
 
-  mv file, File.join(CONFIG['posts'], year, "#{date}-#{File.basename(file)}")
+  mv file, File.join(CONFIG['posts'], year, month, day, "#{date}-#{File.basename(file)}")
 end
 
 # Usage: rake post title="A Title" [date="2012-02-09"]
@@ -133,13 +133,18 @@ task :post do
     exit -1
   end
   year, month, day = date.split(/- */).map {|x| x.to_s}
-  post_folder = File.join(CONFIG['posts'], year)
+  post_folder = File.join(CONFIG['posts'], year, month, day)
   mkdir_p(post_folder) unless File.exists?(post_folder)
   filename = File.join(post_folder, "#{date}-#{slug}.#{CONFIG['post_ext']}")
   if File.exist?(filename)
     abort("rake aborted!") if ask("#{filename} already exists. Do you want to overwrite?", ['y', 'n']) == 'n'
   end
 
+  if (ENV['image'])
+    image_folder = File.join("images", "posts", year, month, day)
+    mkdir_p(image_folder) unless File.exists?(image_folder)
+  end
+  
   puts "Creating new post: #{filename}"
   open(filename, 'w') do |post|
     post.puts post_header(title)
