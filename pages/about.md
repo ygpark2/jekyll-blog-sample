@@ -2,6 +2,8 @@
 layout: page
 title: "About"
 description: "This is for the about "
+weight: 6
+
 group: navigation
 ---
 

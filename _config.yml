@@ -19,15 +19,42 @@ pygments: true
 #
 title : Young Gyu Park Blog
 tagline: Site Tagline
+
 author :
-  name : Young Gyu Park 
+  name : Young Gyu Park
   email : ygpark2@gmail.com
   github : ygpark2
   twitter : ygpark2
   feedburner : ygpark2
 
+website :
+  url : http://ygpark2.github.io/
+
+base_links:
+  blog: http://ygpark2.github.io
+  github: https://github.com/ygpark2
+  github_raw: https://raw.github.com/ygpark2
+  this_repo: https://github.com/ygpark2/ygpark2.github.com
+
+navigation:
+  -
+    name: Blog
+    href: blog.html
+  -
+    name: Article
+    href: articles.html
+  -
+    name: Github
+    href: github.html
+  -
+    name: SNSApi
+    href: snsapi.html
+  -
+    name: About
+    href: about.html
+
 # The production_url is only used when full-domain names are needed
-# such as sitemap.txt 
+# such as sitemap.txt
 # Most places will/should use BASE_PATH to make the urls
 #
 # If you have set a CNAME (pages.github.com) set your custom domain here.
@@ -39,7 +66,7 @@ production_url : http://ygpark2.github.io
 # All Jekyll-Bootstrap specific configurations are namespaced into this hash
 #
 JB :
-  version : 0.2.13
+  version : 0.3.0
 
   # All links will be namespaced by BASE_PATH if defined.
   # Links in your website should always be prefixed with {{BASE_PATH}}
@@ -49,14 +76,14 @@ JB :
   #   DO NOT SET BASE_PATH 
   #   (urls will be prefixed with "/" and work relatively)
   #
-  # GitHub Pages (http://username.github.com)
+  # GitHub Pages (http://username.github.io)
   #   DO NOT SET BASE_PATH 
   #   (urls will be prefixed with "/" and work relatively)
   #
-  # GitHub Project Pages (http://username.github.com/project-name)
+  # GitHub Project Pages (http://username.github.io/project-name)
   #
   #   A GitHub Project site exists in the `gh-pages` branch of one of your repositories.
-  #  REQUIRED! Set BASE_PATH to: http://username.github.com/project-name
+  #  REQUIRED! Set BASE_PATH to: http://username.github.io/project-name
   #
   # CAUTION:
   #   - When in Localhost, your site will run from root "/" regardless of BASE_PATH
@@ -76,11 +103,13 @@ JB :
   ASSET_PATH : false
 
   # These paths are to the main pages Jekyll-Bootstrap ships with.
-  # Some JB helpers refer to these paths; change theme here if needed.
+  # Some JB helpers refer to these paths; change them here if needed.
   #
   archive_path: /archive.html
   categories_path : /categories.html
   tags_path : /tags.html
+  atom_path : /atom.xml
+  rss_path : /rss.xml
 
   # Settings for comments helper
   # Set 'provider' to the comment provider you want to use.
@@ -89,7 +118,7 @@ JB :
   comments :
     provider : disqus
     disqus :
-      short_name : ygparkblog 
+      short_name : ygparkblog
     livefyre :
       site_id : 123
     intensedebate :
@@ -99,36 +128,35 @@ JB :
       num_posts: 5
       width: 580
       colorscheme: light
-   
+
   # Settings for analytics helper
   # Set 'provider' to the analytics provider you want to use.
   # Set 'provider' to false to turn analytics off globally.
-  #        
+  #
   analytics :
-    provider : google 
-    google : 
+    provider : google
+    google :
         tracking_id : 'UA-123-12'
     getclicky :
-      site_id : 
+      site_id :
     mixpanel :
         token : '_MIXPANEL_TOKEN_'
 
-  # Settings for sharing helper. 
+  # Settings for sharing helper.
   # Sharing is for things like tweet, plusone, like, reddit buttons etc.
   # Set 'provider' to the sharing provider you want to use.
   # Set 'provider' to false to turn sharing off globally.
   #
   sharing :
-    provider : false
-    
-  # Settings for all other include helpers can be defined by creating 
+    provider : true
+
+  # Settings for all other include helpers can be defined by creating
   # a hash with key named for the given helper. ex:
   #
   #   pages_list :
-  #     provider : "custom"   
+  #     provider : "custom"
   #
   # Setting any helper's provider to 'custom' will bypass the helper code
   # and include your custom code. Your custom file must be defined at:
   #   ./_includes/custom/[HELPER]
   # where [HELPER] is the name of the helper you are overriding.
-  

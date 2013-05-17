@@ -50,6 +50,7 @@
             <span class="icon-bar"></span>
           </a>
           <a class="brand" href="{{ HOME_PATH }}">{{ site.title }}</a>
+<!--
           <div class="btn-group pull-right">
             <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
               <i class="icon-user"></i> Username
@@ -61,6 +62,7 @@
               <li><a href="#">Sign Out</a></li>
             </ul>
           </div>
+ -->
           <div class="nav-collapse">
             <ul class="nav">
             	{% assign pages_list = site.pages %}
@@ -73,23 +75,23 @@
     </div>
 
     <div class="container-fluid">
-      <div class="row">
-        <div class="span3">
+      <div class="row-fluid">
+        <div class="span2">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">Pages</li>
-                {% assign pages_list = site.pages %}  
-  	        	{% include JB/pages_list %}
+                {% assign pages_list = site.pages %}
+  	          {% include JB/pages_list %}
               <li class="nav-header">Categories</li>
-                {% assign categories_list = site.categories %}  
-  	        	{% include JB/categories_list %}
+                {% assign categories_list = site.categories %}
+  	          {% include JB/categories_list %}
               <li class="nav-header">Tags</li>
-                {% assign tags_list = site.tags %}  
-  	        	{% include JB/tags_list %}
+                {% assign tags_list = site.tags %}
+  	          {% include JB/tags_list %}
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
-        <div class="span9">
+        <div class="span10">
             {{ content }}
         </div><!--/span-->
       </div><!--/row-->
@@ -97,7 +99,7 @@
       <hr>
 
       <footer>
-        <p>&copy; {{ site.author.name }} 2012 
+        <p>&copy; {{ site.author.name }} 2012
           with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
           and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
         </p>

@@ -2,6 +2,7 @@
 layout: page
 title: Home
 tagline: Supporting tagline
+weight: 1
 group: navigation
 ---
 {% include JB/setup %}
@@ -28,7 +29,7 @@ group: navigation
     1. 개인 프로젝트 사이트 오픈
     2. 통계 공부
     3. 글 쓰기 연습
-    
+
 ## 올해 할 일
 
     1. 나의 개인 프로젝트 사이트 오픈하기
