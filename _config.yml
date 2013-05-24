@@ -36,23 +36,6 @@ base_links:
   github_raw: https://raw.github.com/ygpark2
   this_repo: https://github.com/ygpark2/ygpark2.github.com
 
-navigation:
-  -
-    name: Blog
-    href: blog.html
-  -
-    name: Article
-    href: articles.html
-  -
-    name: Github
-    href: github.html
-  -
-    name: SNSApi
-    href: snsapi.html
-  -
-    name: About
-    href: about.html
-
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt
 # Most places will/should use BASE_PATH to make the urls
