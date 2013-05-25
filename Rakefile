@@ -11,6 +11,7 @@ CONFIG = {
   'posts' => File.join(SOURCE, "_posts"),
   'drafts' => File.join(SOURCE, "_drafts"),
   'post_ext' => "md",
+  'github_repos' => "ygpark2/ygpark2.github.com", # GITHUB_REPONAME = "ixti/ixti.github.com"
   'theme_package_version' => "0.1.0"
 }
 
@@ -141,7 +142,7 @@ task :post do
   end
 
   if (ENV['image'])
-    image_folder = File.join("images", "posts", year, month, day)
+    image_folder = File.join("assets", "images", "posts", year, month, day)
     mkdir_p(image_folder) unless File.exists?(image_folder)
   end
   
@@ -181,6 +182,22 @@ desc "Launch preview environment"
 task :preview do
   system "jekyll --watch serve"
 end # task :preview
+
+desc "Generate and publish blog to gh-pages"
+task :release do
+  require 'tmpdir'
+  Dir.mktmpdir do |tmp|
+    system "jekyll build"
+    cp_r "_site/.", tmp
+    Dir.chdir tmp
+    system "git init"
+    system "git add ."
+    message = "Site updated at #{Time.now.utc}"
+    system "git commit -m #{message.shellescape}"
+    system "git remote add --track master origin  https://github.com/#{CONFIG['github_repos']}.git"
+    system "git push origin master --force"
+  end
+end # task :release
 
 # Public: Alias - Maintains backwards compatability for theme switching.
 task :switch_theme => "theme:switch"

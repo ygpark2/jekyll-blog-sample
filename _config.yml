@@ -36,22 +36,69 @@ base_links:
   github_raw: https://raw.github.com/ygpark2
   this_repo: https://github.com/ygpark2/ygpark2.github.com
 
-navigation:
-  -
-    name: Blog
-    href: blog.html
-  -
-    name: Article
-    href: articles.html
-  -
-    name: Github
-    href: github.html
-  -
-    name: SNSApi
-    href: snsapi.html
-  -
-    name: About
-    href: about.html
+#
+# Plugin: jekyll-assets
+#
+assets:
+  #
+  # Pathname of the destination of generated (bundled) assets relative
+  # to the destination of the root.
+  #
+  dirname: assets
+  #
+  # Base URL of assets paths.
+  #
+  baseurl: /assets/
+  #
+  # Pathnames where to find assets relative to the root of the site.
+  #
+  sources:
+    - _assets/javascripts
+    - _assets/stylesheets
+    - _assets/images
+  #
+  # Sets compressors for the specific types of file: `js`, or `css`.
+  # No compression by default.
+  #
+  # Possible variants:
+  #
+  #     css  => 'yui', 'sass', nil
+  #     js   => 'yui', 'uglifier', nil
+  #
+  compress:
+    js:   ~
+    css:  ~
+  #
+  # Sets cachebusting policy for generated assets.
+  #
+  # Possible variants:
+  #
+  #   none - disables cachebusting
+  #
+  #     source file:  _assets/javascripts/app.css
+  #     output file:  _site/assets/javascriptis/app.css
+  #     output URL:   /assets/javascripts/app.css
+  #
+  #   soft - leave filenames as-is, but `?cb=<md5>` suffix for URLs generated
+  #          with `asset_path`, `javascript` and `stylesheet`:
+  #
+  #     source file:  _assets/javascripts/app.css
+  #     output file:  _site/assets/javascriptis/app.css
+  #     output URL:   /assets/javascripts/app.css?cb=4f41243847da693a4f356c0486114bc6
+  #
+  #   hard - (default) injects cachebusting checksum into processed filename:
+  #
+  #     source file:  _assets/javascripts/app.css
+  #     output file:  _site/assets/javascriptis/app-4f41243847da693a4f356c0486114bc6.css
+  #     output URL:   /assets/javascripts/app-4f41243847da693a4f356c0486114bc6.css
+  #
+  cachebust: hard
+  #
+  # Specifies list of MIME types that needs to have gzipped versions.
+  # You can set it to `false` to disable gzipping. Only javascripts and
+  # stylesheets are gzipped by default.
+  #
+  gzip: [ text/css, application/javascript ]
 
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt
