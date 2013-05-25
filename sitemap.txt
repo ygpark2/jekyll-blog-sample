@@ -1,0 +1,13 @@
+
+http://ygpark2.github.io/archive.html
+http://ygpark2.github.io/atom.xml
+http://ygpark2.github.io/categories.html
+http://ygpark2.github.io/index.html
+http://ygpark2.github.io/pages/about.html
+http://ygpark2.github.io/pages.html
+http://ygpark2.github.io/rss.xml
+http://ygpark2.github.io/sitemap.txt
+http://ygpark2.github.io/tags.html
+
+http://ygpark2.github.io/australia%20life/2012/09/06/457-visa-granted
+http://ygpark2.github.io/meditation/beginner/2012/07/23/osho-rajneesh-proverb
