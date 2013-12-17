@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 # Remember to set production_url in your _config.yml file!
 title : Sitemap
@@ -6,3 +7,18 @@ title : Sitemap
 {{site.production_url}}{{ page.url }}{% endfor %}
 {% for post in site.posts %}
 {{site.production_url}}{{ post.url }}{% endfor %}
+=======
+
+http://ygpark2.github.io/archive.html
+http://ygpark2.github.io/atom.xml
+http://ygpark2.github.io/categories.html
+http://ygpark2.github.io/index.html
+http://ygpark2.github.io/pages/about.html
+http://ygpark2.github.io/pages.html
+http://ygpark2.github.io/rss.xml
+http://ygpark2.github.io/sitemap.txt
+http://ygpark2.github.io/tags.html
+
+http://ygpark2.github.io/australia%20life/2012/09/06/457-visa-granted
+http://ygpark2.github.io/meditation/beginner/2012/07/23/osho-rajneesh-proverb
+>>>>>>> fa264a9a514f095d86f44b99139a0b677caeda71

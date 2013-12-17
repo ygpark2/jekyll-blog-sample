@@ -143,3 +143,12 @@ JB :
   # and include your custom code. Your custom file must be defined at:
   #   ./_includes/custom/[HELPER]
   # where [HELPER] is the name of the helper you are overriding.
+
+  flickr_set:
+    gallery_tag:   'p'
+    gallery_class: 'gallery'
+    a_href:        nil
+    a_target:      '_blank'
+    image_rel:     ''
+    image_size:    's'
+    api_key:       ''
