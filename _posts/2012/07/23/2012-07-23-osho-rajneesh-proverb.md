@@ -7,8 +7,6 @@ categories : [meditation, beginner]
 tags: [meditation, Osho, commandments]
 ---
 
-<img src="/images/078.jpg"/>
-
 1 자신의 내면에서 나오는 음성과 일치하지 않는다면, 그 어느 누구의 명령에도 복종하지 말라.
 
 Never obey anyone's command unless it is coming from within you also.
